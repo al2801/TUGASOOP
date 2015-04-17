@@ -4,7 +4,6 @@ public class Kegiatan {
     TipeKegiatan tipe;
     Waktu waktu=new Waktu();
     TipeKegiatan tipe1 = new TipeKegiatan();
-    
     Kegiatan(){
         //empty constructor !
     }

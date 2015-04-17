@@ -3,7 +3,6 @@ package jadwalku;
 public class Pengguna {
 
     private String nama;
-    Kegiatan kegiatan=new Kegiatan();
 
     public void setNama(String nama) throws Exception {
         for (char x : nama.toCharArray()) {
