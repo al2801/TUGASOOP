@@ -13,18 +13,18 @@ public class JadwalKu {
         System.out.println("JADWALKU");
         System.out.println("===============================================");
 
-        Pengguna pengguna1 = new Pengguna();
+        Pengguna pengguna = new Pengguna();
         LinkedList<Kegiatan> daftarkegiatan = new LinkedList();
         String nama;
         do {
             System.out.print("Masukan Nama Anda : ");
             nama = input2.nextLine();
             try {
-                pengguna1.setNama(nama);
+                pengguna.setNama(nama);
             } catch (Exception ex) {
                 System.out.println("Terjadi Kesalahan : " + ex.getMessage());
             }
-        } while (pengguna1.getNama() == "-1");
+        } while (pengguna.getNama() == "-1");
 
         int pil, i;
         do {
@@ -105,7 +105,7 @@ public class JadwalKu {
                         System.out.println("===============================================");
                         System.out.println("RINCIAN KEGIATAN");
                         System.out.println("===============================================");
-                        System.out.println("PENGGUNA : " + pengguna1.getNama());
+                        System.out.println("PENGGUNA : " + pengguna.getNama());
                         System.out.println("-----------------------------------------------");
                         for (int n = 0; (n < daftarkegiatan.size()); n++) {
                             System.out.println("Kegiatan ke-" + (n + 1));
@@ -140,7 +140,7 @@ public class JadwalKu {
             System.out.print("Tahun : ");
             thn = input.next();
             try {
-                kegiatan.waktu.tahun.setTahun(thn);
+                kegiatan.waktu.getTahun().setTahun(thn);
             } catch (Exception ex) {
                 System.out.println("Terjadi Kesalahan : " + ex.getMessage());
             }
@@ -148,39 +148,39 @@ public class JadwalKu {
 
         String bln;
         do {
-            System.out.print("Bulan : ");
+            System.out.print("Nama Bulan : ");
             bln = input2.nextLine();
             try {
-                kegiatan.waktu.bulan.setNamaBulan(bln);
+                kegiatan.waktu.getBulan().setNamaBulan(bln);
             } catch (Exception ex) {
                 System.out.println("Terjadi Kesalahan : " + ex.getMessage());
             }
-        } while (bln != kegiatan.waktu.bulan.getNamaBulan());
+        } while (bln != kegiatan.waktu.getBulan().getNamaBulan());
 
         int tgl;
         do {
             System.out.print("Tanggal : ");
             tgl = input.nextInt();
             try {
-                kegiatan.waktu.tanggal.SetTanggal(tgl, kegiatan.waktu.bulan);
+                kegiatan.waktu.getTanggal().SetTanggal(tgl, kegiatan.waktu.getBulan());
             } catch (Exception ex) {
                 System.out.println("Terjadi Kesalahan : " + ex.getMessage());
             }
-        } while (tgl != kegiatan.waktu.tanggal.getTanggal());
+        } while (tgl != kegiatan.waktu.getTanggal().getTanggal());
 
         Calendar cal = Calendar.getInstance();
-        cal.set(kegiatan.waktu.tahun.getTahun(), kegiatan.waktu.bulan.getIndeksBulan(), tgl);
+        cal.set(kegiatan.waktu.getTahun().getTahun(), kegiatan.waktu.getBulan().getIndeksBulan(), tgl);
         kegiatan.waktu.setWaktu(cal.getTime());
     }
 
     static void tipeK3(Kegiatan kegiatan) {
         System.out.println("Tugas untuk Mata Kuliah : ");
-        for (int j = 0; j < kegiatan.tipe.matkul.matkul.length; j++) {
-            System.out.println(j + 1 + "." + kegiatan.tipe.matkul.matkul[j]);
+        for (int j = 0; j < kegiatan.tipe.getMatkul().matkul.length; j++) {
+            System.out.println(j + 1 + "." + kegiatan.tipe.getMatkul().matkul[j]);
         }
-        System.out.println("Pilihan : ");
+        System.out.print("Pilihan : ");
         int pilMatkul = input.nextInt();
-        kegiatan.setNama("Tugas Mata Kuliah " + kegiatan.tipe.matkul.matkul[pilMatkul - 1]);
+        kegiatan.setNama("Tugas Mata Kuliah " + kegiatan.tipe.getMatkul().matkul[pilMatkul - 1]);
 
         System.out.println("Deadline Tugas");
         String thn;
@@ -188,7 +188,7 @@ public class JadwalKu {
             System.out.print("Tahun : ");
             thn = input.next();
             try {
-                kegiatan.waktu.tahun.setTahun(thn);
+                kegiatan.waktu.getTahun().setTahun(thn);
             } catch (Exception ex) {
                 System.out.println("Terjadi Kesalahan : " + ex.getMessage());
             }
@@ -196,28 +196,28 @@ public class JadwalKu {
 
         String bln;
         do {
-            System.out.print("Bulan : ");
+            System.out.print("Nama Bulan : ");
             bln = input2.nextLine();
             try {
-                kegiatan.waktu.bulan.setNamaBulan(bln);
+                kegiatan.waktu.getBulan().setNamaBulan(bln);
             } catch (Exception ex) {
                 System.out.println("Terjadi Kesalahan : " + ex.getMessage());
             }
-        } while (bln != kegiatan.waktu.bulan.getNamaBulan());
+        } while (bln != kegiatan.waktu.getBulan().getNamaBulan());
 
         int tgl;
         do {
             System.out.print("Tanggal : ");
             tgl = input.nextInt();
             try {
-                kegiatan.waktu.tanggal.SetTanggal(tgl, kegiatan.waktu.bulan);
+                kegiatan.waktu.getTanggal().SetTanggal(tgl, kegiatan.waktu.getBulan());
             } catch (Exception ex) {
                 System.out.println("Terjadi Kesalahan : " + ex.getMessage());
             }
-        } while (tgl != kegiatan.waktu.tanggal.getTanggal());
+        } while (tgl != kegiatan.waktu.getTanggal().getTanggal());
 
         Calendar cal = Calendar.getInstance();
-        cal.set(kegiatan.waktu.tahun.getTahun(), kegiatan.waktu.bulan.getIndeksBulan(), tgl);
+        cal.set(kegiatan.waktu.getTahun().getTahun(), kegiatan.waktu.getBulan().getIndeksBulan(), tgl);
         kegiatan.waktu.setWaktu(cal.getTime());
 
     }
