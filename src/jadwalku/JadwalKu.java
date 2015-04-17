@@ -10,7 +10,7 @@ public class JadwalKu {
     public static void main(String[] args) {
 
         System.out.println("===============================================");
-        System.out.println("JADWALKU TES");
+        System.out.println("JADWALKU");
         System.out.println("===============================================");
 
         Pengguna pengguna1 = new Pengguna();
